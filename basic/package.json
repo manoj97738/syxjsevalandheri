@@ -1,0 +1,19 @@
+{
+  "name": "syxservices",
+  "version": "1.0.0",
+  "description": "this package make people laugh because they dont laugh",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "hasi",
+    "to",
+    "fasi"
+  ],
+  "author": "Jamebond008 <mnn@mm.com>",
+  "license": "MIT",
+  "dependencies": {
+    "validators": "^0.3.1"
+  }
+}
