@@ -6,4 +6,6 @@ router.use((req,res,next)=>{
     next();
 })
 router.get('/user',controller.main)
+router.post('/user',controller.create)
+
 module.exports=router;

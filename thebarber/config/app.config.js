@@ -4,7 +4,10 @@ class AppConfig {
         this.app = app;
         this.connectDb();
         this.connection = mongoose.connection;
-        this.connection.on('error', console.error.bind(console, 'connection error:'));
+        this.connection.on('error', 
+        console.error.bind(console, 
+        'connection error:'));
+
         this.connection.once('open', function callback () {
           console.log("We are connected!");
         });
@@ -15,10 +18,16 @@ class AppConfig {
         }
         return process.env.port;
     }
+    get mongoUri() {
+        if (!process.env.mongoUri) {
+            return 'mongodb://localhost:27017/thebarber';
+        }
+        return process.env.mongoUri;
+    }
     connectDb(){
-       return  mongoose.connect('mongodb://localhost:27017/thebarber', 
-                {useNewUrlParser: true}
-       );
+       return  mongoose.connect(this.mongoUri, {
+                            useNewUrlParser: true
+                            });
     }
 }
 module.exports = AppConfig;

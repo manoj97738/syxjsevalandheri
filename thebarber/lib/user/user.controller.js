@@ -5,10 +5,20 @@ class UserController {
     main(req,res,next){
         DBWrapper.find(User,{})
             .then((data)=>{
-                console.log(data);
-                res.send('User controller');
+                res.json(data);
             }).catch((err)=>{
-                console.log(err)
+               res.json(err);
+            })
+    }
+    create(req,res,next){
+        const body={email:'abc@abc.com'} //req.body
+        DBWrapper.create(User,body)
+            .then((data)=>{
+                return  DBWrapper.find(User,{});
+            }).then((data)=>{
+                res.send(data);
+            }).catch((err)=>{
+               res.json(err);
             })
     }
 }

@@ -3,6 +3,8 @@ const app = express();
 let config = require('./config/app.config');
 config = new config(app);
 app.use('/v1',require('./lib/user'))
+//app.use('/v1',require('./'))
+
 app.get('/', (req, res) => {
     res.end('Hello world')
 })

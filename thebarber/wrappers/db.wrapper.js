@@ -13,5 +13,17 @@ class DBWrapper {
         })
     
     }
+
+    create(model,body){
+        return new Promise((resolve,reject)=>{
+            model.create(body, function(err, data) {
+                if(!err){
+                    return resolve(data)
+                }
+                return reject(err)
+            });
+        })
+    
+    }
 }
 module.exports=new DBWrapper();

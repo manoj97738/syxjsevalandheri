@@ -6,7 +6,13 @@ const UserSchema = new Schema({
         type:String,
         default:'user'
     },
-    author: String,
+    name: {
+        type:String,
+        required:true
+    },
+    phone: String,
+    email: String,
+    password: String,
     createdAt:   {
         type:String,
         default:Date.now
